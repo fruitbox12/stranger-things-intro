@@ -55,16 +55,16 @@ var config = {
       title: "Typescript Webpack Starter",
       template: "!!ejs-loader!src/index.html"
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      minChunks: Infinity,
-      filename: "vendor.bundle.js"
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false, drop_debugger: false },
-      output: { comments: false },
-      sourceMap: true
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: "vendor",
+    //   minChunks: Infinity,
+    //   filename: "vendor.bundle.js"
+    // }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: { warnings: false, drop_debugger: false },
+    //   output: { comments: false },
+    //   sourceMap: true
+    // }),
     new DashboardPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
