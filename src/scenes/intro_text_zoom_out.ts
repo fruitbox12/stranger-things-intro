@@ -2,6 +2,20 @@ const CANVAS_WIDTH = window.innerWidth;
 const CANVAS_HEIGHT = window.innerHeight;
 type RequestAnimationFrame = (callback: FrameRequestCallback) => number;
 
+/**
+Notes:
+Zooming out
++ RANG is coming closer
++ TE(has more delay than T) fall in place after a delay
++ T I G is coming closer
++ N falls in place after a delay
++ HS fall in place after almost equal delay
++ S(of Stranger) starts to come more closer after a delay
++ line reveal on top after delay
++ wings reveal after delay
+(this calls for a good code design revamp tomorrow)
+*/
+
 export class IntroTextZoomOut {
   private readonly min: number = 100;
   private delta: number = -0.01;
