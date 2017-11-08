@@ -9,13 +9,17 @@ export class Interpolation {
     }
   }
 
-  static custom(start: number, end: number, delay: number) {
-    const mappedPercentageUnit = (100 - delay) / 100;
+  static custom(start: number, end: number, delay: number, delayEnd: number = 100) {
+    const mappedPercentageUnit = (delayEnd - delay) / 100;
     const interpolator = Interpolation.linear(start, end);
 
     return function interpolate(percentage: number): number {
       if (percentage < delay) {
         return 0;
+      }
+
+      if (percentage > delayEnd) {
+        return 1;
       }
 
       const mappedPercentage = (percentage - delay) / mappedPercentageUnit;

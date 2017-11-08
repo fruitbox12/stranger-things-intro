@@ -12,14 +12,17 @@ const canvas: HTMLCanvasElement = createHiDPICanvas(
 
 const video: Video = new Video({
   compositions: StrangerThingsIntroCompositions,
-  duration: Time.create('00:00:59').getMilliseconds(),
+  duration: Time.create('00:00:54').getMilliseconds(),
   width: CANVAS_WIDTH,
   height: CANVAS_HEIGHT,
   requestAnimationFrame: window.requestAnimationFrame.bind(window),
 });
 const videoPlayer: VideoPlayer = new VideoPlayer({ canvas, audioUrl: AUDIO_URL, video });
 
-videoPlayer.play();
+document.body.addEventListener("click", () => {
+  document.body.webkitRequestFullscreen();
+  videoPlayer.play();
+});
 
 function getPixelRatio(): number {
     const ctx: CanvasRenderingContext2D = document.createElement("canvas").getContext("2d");

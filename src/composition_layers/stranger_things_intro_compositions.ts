@@ -46,9 +46,9 @@ export const StrangerThingsIntroCompositions: Composition[] = [
     endTime: Time.create('00:00:25'),
     layers: [new LayerSix(), new LayerSeven()],
   }),
-  // new Composition({
-  //   startTime: Time.create('00:00:25'),
-  //   endTime: Time.create('00:00:45'),
-  //   layers: TitleZoomoutLayers,
-  // }),
+  new Composition({
+    startTime: Time.create('00:00:25'),
+    endTime: Time.create('00:00:53'),
+    layers: TitleZoomoutLayers,
+  }),
 ];
