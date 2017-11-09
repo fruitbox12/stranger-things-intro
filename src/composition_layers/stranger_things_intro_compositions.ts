@@ -11,9 +11,6 @@ import { EmptyLater } from './empty_layer';
 import { Layers as TitleZoomoutLayers } from './title_zoomout/layers';
 import { AdjustmentLayers } from './title_zoomout/layers';
 
-//40 - 41 pe rectangle1 reveal
-//40.5 - 41 pe rectangle2 reveal
-// 43 - 45 fadeOut
 const introStart = 0 && 25;
 const introEnd = 20 || 45;
 
