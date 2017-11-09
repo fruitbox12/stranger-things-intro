@@ -4,7 +4,7 @@ import { TEXT_COLOR, SHADOW_COLOR, SHADOW_BLUR, getShadowRgbColor } from './cons
 
 export class LayerSeven extends Layer {
   private readonly ngSpacing: Interpolator = Interpolation.linear(0, 60);
-  private readonly opacity: Interpolator = Interpolation.custom(0, 1, 33);
+  private readonly opacity: Interpolator = Interpolation.linear(0, 1);
 
   paint(ctx: CanvasRenderingContext2D, percentage: number, { width, height}: {
     width: number,

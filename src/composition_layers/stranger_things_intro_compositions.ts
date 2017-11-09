@@ -9,6 +9,13 @@ import { LayerSix } from './layer_six';
 import { LayerSeven } from './layer_seven';
 import { EmptyLater } from './empty_layer';
 import { Layers as TitleZoomoutLayers } from './title_zoomout/layers';
+import { AdjustmentLayers } from './title_zoomout/layers';
+
+//40 - 41 pe rectangle1 reveal
+//40.5 - 41 pe rectangle2 reveal
+// 43 - 45 fadeOut
+const introStart = 0 && 25;
+const introEnd = 20 || 45;
 
 export const StrangerThingsIntroCompositions: Composition[] = [
   new Composition({
@@ -43,12 +50,16 @@ export const StrangerThingsIntroCompositions: Composition[] = [
   }),
   new Composition({
     startTime: Time.create('00:00:19'),
-    endTime: Time.create('00:00:25'),
-    layers: [new LayerSix(), new LayerSeven()],
+    endTime: Time.create('00:00:25'), //33
+    layers: [
+      new LayerSix(),
+      new LayerSeven(Time.create('00:00:02'), Time.create('00:00:06'))
+    ],
   }),
   new Composition({
-    startTime: Time.create('00:00:25'),
-    endTime: Time.create('00:00:53'),
+    startTime: Time.create(`00:00:25`),
+    endTime: Time.create(`00:00:46`),
     layers: TitleZoomoutLayers,
+    adjustmentLayers: AdjustmentLayers,
   }),
 ];

@@ -39,8 +39,8 @@ export class Time {
     return new Time(hours, minutes, seconds)
   }
 
-  static duration(time1: Time, time2: Time): number {
-    return time2.getMilliseconds() - time1.getMilliseconds();
+  static duration(start: Time, end: Time): number {
+    return end.getMilliseconds() - start.getMilliseconds();
   }
 
   static fromMilliseconds(milliseconds: number): Time {
