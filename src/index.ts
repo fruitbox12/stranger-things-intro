@@ -19,10 +19,10 @@ const video: Video = new Video({
 });
 const videoPlayer: VideoPlayer = new VideoPlayer({ canvas, audioUrl: AUDIO_URL, video });
 
-// document.body.addEventListener("click", () => {
-  // document.body.webkitRequestFullscreen();
+document.body.addEventListener("click", () => {
+  document.body.webkitRequestFullscreen();
   videoPlayer.play();
-// });
+});
 
 function getPixelRatio(): number {
     const ctx: CanvasRenderingContext2D = document.createElement("canvas").getContext("2d");

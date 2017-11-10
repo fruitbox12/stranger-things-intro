@@ -8,6 +8,7 @@ import { LayerFive } from './layer_five';
 import { LayerSix } from './layer_six';
 import { LayerSeven } from './layer_seven';
 import { EmptyLater } from './empty_layer';
+import { EpisodeTitle } from './episode_title';
 import { Layers as TitleZoomoutLayers } from './title_zoomout/layers';
 import { AdjustmentLayers } from './title_zoomout/layers';
 
@@ -58,5 +59,10 @@ export const StrangerThingsIntroCompositions: Composition[] = [
     endTime: Time.create(`00:00:46`),
     layers: TitleZoomoutLayers,
     adjustmentLayers: AdjustmentLayers,
+  }),
+  new Composition({
+    startTime: Time.create(`00:00:48`),
+    endTime: Time.create(`00:00:54`),
+    layers: [new EpisodeTitle()],
   }),
 ];
