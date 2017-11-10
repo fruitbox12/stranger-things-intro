@@ -1,6 +1,6 @@
 Intro sequence of the popular Netflix TV series "Stranger Things", rendered using HTML `<canvas/>`. It's a fun side-project that I did to demonstrate the possibilities of modern web technologies & also to see how far I can push it.
 
-# Documentation to follow soon _if you're eager head over to `src/video_player`
+# Documentation to follow soon _if you're eager head over to `src/video_player`_
 
 
 # Developing
