@@ -76,10 +76,12 @@ var config = {
     })
   ],
   devServer: {
+    host: '0.0.0.0',
     contentBase: path.join(__dirname, "dist/"),
     compress: false,
     port: 3000,
-    hot: true
+    hot: true,
+    disableHostCheck: true,
   }
 };
 
