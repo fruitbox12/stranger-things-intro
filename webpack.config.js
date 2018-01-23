@@ -14,8 +14,8 @@ var config = {
   },
   output: {
     path: path.resolve("./dist"),
-    filename: "[name].bundle.js",
-    sourceMapFilename: "[name].bundle.map",
+    filename: "[name].[chunkhash].js",
+    sourceMapFilename: "[name].[chunkhash].map",
     devtoolModuleFilenameTemplate: function (info) {
         return "file:///" + info.absoluteResourcePath;
     }
