@@ -44,10 +44,12 @@ const video: Video = new Video({
 const videoPlayer: VideoPlayer = new VideoPlayer({ canvas, audioUrl: AUDIO_URL, video });
 const playButton = document.getElementById('play-button');
 let videoPlayed: boolean = false;
+let hidden: string, visibilityChange: string;
 
 playButton.addEventListener('click', play);
+window.addEventListener('keydown', handleKeydown);
 
-window.addEventListener('keydown', e => {
+function handleKeydown(e) {
   if (e.keyCode === 32) {
     if (!videoPlayed) {
       play();
@@ -56,7 +58,7 @@ window.addEventListener('keydown', e => {
 
     videoPlayer.isPaused() ? videoPlayer.resume() : videoPlayer.pause();
   }
-});
+}
 
 window.addEventListener('optimizedResize', fitToScreen);
 fitToScreen();
@@ -115,10 +117,19 @@ function createHiDPICanvas(width: number, height: number, ratio: number): HTMLCa
 
 function rollCredits() {
   document.getElementById('credits').classList.remove('hidden');
+  document.removeEventListener(visibilityChange, handleVisibilityChange);
+  window.removeEventListener('keydown', handleKeydown);
+}
+
+function handleVisibilityChange() {
+  if (document[hidden]) {
+    videoPlayer.pause();
+  } else {
+    videoPlayer.resume();
+  }
 }
 
 function handleTabSwitch(videoPlayer: VideoPlayer) {
-  let hidden: string, visibilityChange;
 
   if (typeof document.hidden !== 'undefined') { // Opera 12.10 and Firefox 18 and later support
     hidden = 'hidden';
@@ -130,14 +141,6 @@ function handleTabSwitch(videoPlayer: VideoPlayer) {
     hidden = 'webkitHidden';
     visibilityChange = 'webkitvisibilitychange';
   }
-
-  const handleVisibilityChange = () => {
-    if (document[hidden]) {
-      videoPlayer.pause();
-    } else {
-      videoPlayer.resume();
-    }
-  };
 
   videoPlayer.setOnPause(() => document.title = `[Paused] ${document.title}`);
   videoPlayer.setOnResume(() => document.title = document.title.replace('[Paused] ', ''));
