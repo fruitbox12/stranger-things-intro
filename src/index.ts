@@ -49,7 +49,7 @@ let hidden: string, visibilityChange: string;
 playButton.addEventListener('click', play);
 window.addEventListener('keydown', handleKeydown);
 
-function handleKeydown(e) {
+function handleKeydown(e: KeyboardEvent) {
   if (e.keyCode === 32) {
     if (!videoPlayed) {
       play();
