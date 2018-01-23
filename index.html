@@ -5,14 +5,13 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Intro sequence of popular Netfix web television series Stranger Things rendered using HTML Canvas using Javascript.">
-  <meta property="og:image" content="/assets/logo.png" />
+  <meta property="og:image" content="/stranger-things-intro/assets/logo.png" />
 
   <title>
-    <%= htmlWebpackPlugin.options.title %>
+    Stranger Things intro using HTML Canvas
   </title>
 
-  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+  <meta name="description" content="Stranger Things intro using HTML Canvas">
   <style type="text/css">
     @font-face {
       font-family: StrangerThings;
@@ -28,17 +27,10 @@
       margin: 0;
       overflow: hidden;
       background-color: black;
-      font-family: monospace;
-      color: white;
     }
 
     #video-container {
       overflow: hidden;
-    }
-
-    p {
-      line-height: 1.5;
-      font-size: 1.5em;
     }
 
     #credits {
@@ -49,11 +41,15 @@
       left: 0;
       display: flex;
       flex-direction: column;
+      font-family: monospace;
+      color: white;
       justify-content: center;
       text-align: center;
+      font-size: 1.5em;
+      line-height: 1.5;
     }
 
-    a {
+    #credits a {
       color: white;
     }
 
@@ -94,18 +90,12 @@
     #play-button:hover {
       opacity: 0.8;
     }
-
-    .hidden {
-      display: none;
-    }
   </style>
 </head>
 
 <body>
   <div class="play-button-container" id="play-button-container">
     <button id="play-button">&#9658;</button>
-    <p class="hidden">Intro sequence of the TV Show <a href="https://en.wikipedia.org/wiki/Stranger_Things
-" target="_blank">Stranger Things</a>, rendered using HTML &lt;canvas /&gt;. <br />Hit spacebar to pause/play.</p>
   </div>
   <div id="video-container"></div>
   <div id="credits" class="hidden">
@@ -117,6 +107,6 @@
       <a href="https://instagram.com/mudassirali0909" target="_blank">Instagram</a>
     </p>
   </div>
-</body>
+<script type="text/javascript" src="/stranger-things-intro/dist/vendor.bundle.js"></script><script type="text/javascript" src="/stranger-things-intro/dist/app.bundle.js"></script></body>
 
 </html>
