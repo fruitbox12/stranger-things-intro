@@ -18,7 +18,9 @@ export class Video {
   private readonly height: number;
   private readonly background: string = '#0c0101';
 
+  private isPaused: boolean = false;
   private playbackStartTime: number; //start datetime in milliseconds
+  private playbackPauseTime: number; //start datetime in milliseconds
 
   constructor({
     compositions,
@@ -53,6 +55,11 @@ export class Video {
         return;
       }
 
+      if (this.isPaused) {
+        this.queueRender(ctx, resolve);
+        return;
+      }
+
       const now: Time = Time.fromMilliseconds(timeElapsed);
 
       this.beforeFrameRender(ctx);
@@ -80,10 +87,12 @@ export class Video {
   }
 
   pause() {
-    throw new Error('Implement Video pause');
+    this.playbackPauseTime = +(new Date());
+    this.isPaused = true;
   }
 
   resume() {
-    throw new Error('Implement Video resume');
+    this.playbackStartTime += (+(new Date()) - this.playbackPauseTime);
+    this.isPaused = false;
   }
 }

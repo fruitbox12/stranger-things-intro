@@ -5,3 +5,8 @@ interface CanvasRenderingContext2D {
   oBackingStorePixelRatio?: number;
   backingStorePixelRatio?: number;
 }
+
+interface Document {
+  msHidden: any;
+  webkitHidden: any;
+}

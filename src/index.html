@@ -26,10 +26,17 @@
       margin: 0;
       overflow: hidden;
       background-color: black;
+      font-family: monospace;
+      color: white;
     }
 
     #video-container {
       overflow: hidden;
+    }
+
+    p {
+      line-height: 1.5;
+      font-size: 1.5em;
     }
 
     #credits {
@@ -40,15 +47,11 @@
       left: 0;
       display: flex;
       flex-direction: column;
-      font-family: monospace;
-      color: white;
       justify-content: center;
       text-align: center;
-      font-size: 1.5em;
-      line-height: 1.5;
     }
 
-    #credits a {
+    a {
       color: white;
     }
 
@@ -89,12 +92,18 @@
     #play-button:hover {
       opacity: 0.8;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 
 <body>
   <div class="play-button-container" id="play-button-container">
     <button id="play-button">&#9658;</button>
+    <p class="hidden">Intro sequence of the TV Show <a href="https://en.wikipedia.org/wiki/Stranger_Things
+" target="_blank">Stranger Things</a>, rendered using HTML &lt;canvas /&gt;. <br />Hit spacebar to pause/play.</p>
   </div>
   <div id="video-container"></div>
   <div id="credits" class="hidden">

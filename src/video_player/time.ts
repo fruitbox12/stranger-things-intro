@@ -36,7 +36,7 @@ export class Time {
     // TODO validations
     const [hours, minutes, seconds] = time.split(':').map(Number);
 
-    return new Time(hours, minutes, seconds)
+    return new Time(hours, minutes, seconds);
   }
 
   static duration(start: Time, end: Time): number {

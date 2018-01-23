@@ -3,7 +3,7 @@ import { Time } from './time';
 export abstract class Layer {
   constructor(
     private readonly startTime?: Time, //maybe this should go on the Composition
-    private readonly endTime?: Time
+    private readonly endTime?: Time,
   ) {
     //throw error if either of them are null instead of both
   }
@@ -11,7 +11,7 @@ export abstract class Layer {
   // percentage of duration elapsed, in order to interpolate values
   abstract paint(ctx: CanvasRenderingContext2D, percentage: number, {
     width,
-    height
+    height,
   }: { width: number, height: number }): void
 
   canBePainted(currentTime: Time): boolean {

@@ -43,13 +43,30 @@ const video: Video = new Video({
 });
 const videoPlayer: VideoPlayer = new VideoPlayer({ canvas, audioUrl: AUDIO_URL, video });
 const playButton = document.getElementById('play-button');
-playButton.addEventListener('click', () => {
-  document.getElementById('play-button-container').classList.add('hidden');
-  videoPlayer.play().then(rollCredits);
+let videoPlayed: boolean = false;
+
+playButton.addEventListener('click', play);
+
+window.addEventListener('keydown', e => {
+  if (e.keyCode === 32) {
+    if (!videoPlayed) {
+      play();
+      return;
+    }
+
+    videoPlayer.isPaused() ? videoPlayer.resume() : videoPlayer.pause();
+  }
 });
 
 window.addEventListener('optimizedResize', fitToScreen);
 fitToScreen();
+
+function play() {
+  document.getElementById('play-button-container').classList.add('hidden');
+  videoPlayer.play().then(rollCredits);
+  handleTabSwitch(videoPlayer);
+  videoPlayed = true;
+}
 
 function fitToScreen() {
   let width = window.innerWidth;
@@ -74,11 +91,11 @@ function updateToHiDPICanvas(canvas: HTMLCanvasElement, width: number, height: n
   canvas.height = height * ratio;
   canvas.style.width = `${width}px`;
   canvas.style.height = `${height}px`;
-  canvas.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
+  canvas.getContext('2d').setTransform(ratio, 0, 0, ratio, 0, 0);
 }
 
 function getPixelRatio(): number {
-    const ctx: CanvasRenderingContext2D = document.createElement("canvas").getContext("2d");
+    const ctx: CanvasRenderingContext2D = document.createElement('canvas').getContext('2d');
     const dpr = window.devicePixelRatio || 1;
     const bsr = ctx.webkitBackingStorePixelRatio ||
               ctx.mozBackingStorePixelRatio ||
@@ -98,4 +115,32 @@ function createHiDPICanvas(width: number, height: number, ratio: number): HTMLCa
 
 function rollCredits() {
   document.getElementById('credits').classList.remove('hidden');
+}
+
+function handleTabSwitch(videoPlayer: VideoPlayer) {
+  let hidden: string, visibilityChange;
+
+  if (typeof document.hidden !== 'undefined') { // Opera 12.10 and Firefox 18 and later support
+    hidden = 'hidden';
+    visibilityChange = 'visibilitychange';
+  } else if (typeof document.msHidden !== 'undefined') {
+    hidden = 'msHidden';
+    visibilityChange = 'msvisibilitychange';
+  } else if (typeof document.webkitHidden !== 'undefined') {
+    hidden = 'webkitHidden';
+    visibilityChange = 'webkitvisibilitychange';
+  }
+
+  const handleVisibilityChange = () => {
+    if (document[hidden]) {
+      videoPlayer.pause();
+    } else {
+      videoPlayer.resume();
+    }
+  };
+
+  videoPlayer.setOnPause(() => document.title = `[Paused] ${document.title}`);
+  videoPlayer.setOnResume(() => document.title = document.title.replace('[Paused] ', ''));
+
+  document.addEventListener(visibilityChange, handleVisibilityChange, false);
 }
