@@ -52,7 +52,7 @@ var config = {
       }
     }),
     new HtmlWebpackPlugin({
-      title: "Typescript Webpack Starter",
+      title: "Stranger Things intro using HTML Canvas",
       template: "!!ejs-loader!src/index.html"
     }),
     // new webpack.optimize.CommonsChunkPlugin({

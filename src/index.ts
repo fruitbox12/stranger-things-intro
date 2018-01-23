@@ -22,7 +22,7 @@ import { StrangerThingsIntroCompositions } from './composition_layers/stranger_t
     throttle('resize', 'optimizedResize');
 })();
 
-const AUDIO_URL = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/music.mp3';
+const AUDIO_URL = 'https://raw.githubusercontent.com/mudassir0909/resume/master/intro.mp3';
 
 const videoResolution = {
   width: 1440,
@@ -42,9 +42,10 @@ const video: Video = new Video({
   requestAnimationFrame: window.requestAnimationFrame.bind(window),
 });
 const videoPlayer: VideoPlayer = new VideoPlayer({ canvas, audioUrl: AUDIO_URL, video });
-
-document.body.addEventListener('click', () => {
-  videoPlayer.play();
+const playButton = document.getElementById('play-button');
+playButton.addEventListener('click', () => {
+  document.getElementById('play-button-container').classList.add('hidden');
+  videoPlayer.play().then(rollCredits);
 });
 
 window.addEventListener('optimizedResize', fitToScreen);
@@ -93,4 +94,8 @@ function createHiDPICanvas(width: number, height: number, ratio: number): HTMLCa
   updateToHiDPICanvas(canvas, width, height, ratio);
 
   return canvas as HTMLCanvasElement;
+}
+
+function rollCredits() {
+  document.getElementById('credits').classList.remove('hidden');
 }

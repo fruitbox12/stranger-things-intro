@@ -19,7 +19,7 @@ export class VideoPlayer {
 
   play() {
     this.audio.play();
-    this.video.play(this.canvas.getContext('2d')).then(() => this.audio.pause());
+    return this.video.play(this.canvas.getContext('2d')).then(() => this.audio.pause());
   }
 
   pause() {

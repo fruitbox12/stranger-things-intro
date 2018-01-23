@@ -17,6 +17,6 @@ export class EpisodeTitle extends Layer {
 
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
-    ctx.fillText('Episode one: Biased rendering', 0, 0);
+    // ctx.fillText('Episode one: Biased rendering', 0, 0);
   }
 }

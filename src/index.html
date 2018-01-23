@@ -31,11 +31,81 @@
     #video-container {
       overflow: hidden;
     }
+
+    #credits {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: monospace;
+      color: white;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.5em;
+      line-height: 1.5;
+    }
+
+    #credits a {
+      color: white;
+    }
+
+    #credits.hidden, .play-button-container.hidden {
+      display: none;
+    }
+
+    .find-me {
+      opacity: 0.6;
+    }
+
+    .play-button-container {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: 10;
+    }
+
+    #play-button {
+      display: block;
+      width: 200px;
+      height: 200px;
+      color: white;
+      background: transparent;
+      border: none;
+      font-size: 10em;
+      align-self: center;
+      cursor: pointer;
+      outline: 0;
+    }
+
+    #play-button:hover {
+      opacity: 0.8;
+    }
   </style>
 </head>
 
 <body>
+  <div class="play-button-container" id="play-button-container">
+    <button id="play-button">&#9658;</button>
+  </div>
   <div id="video-container"></div>
+  <div id="credits" class="hidden">
+    <p>This is just a fun side-project I did over a weekend to push my &lt;canvas/&gt; skills.<br/ >Netflix owns the copyrights for this soundtrack.</p>
+
+    <p class="find-me">Find me on
+      <a href="https://github.com/mudassir0909/" target="_blank">Github</a>
+      <a href="https://twitter.com/guesswhat4951/" target="_blank">Twitter</a>
+      <a href="https://instagram.com/mudassirali0909" target="_blank">Instagram</a>
+    </p>
+  </div>
 </body>
 
 </html>
