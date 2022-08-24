@@ -23,14 +23,14 @@ export class LayerSix extends Layer {
     const verticalSpacing = 20;
     ctx.textBaseline = 'alphabetic';
     ctx.textAlign = 'center';
-    ctx.strokeText('T', -60 - this.xOffset(percentage), -verticalSpacing + this.yOffset(percentage));
+    ctx.strokeText('NON', -60 - this.xOffset(percentage), -verticalSpacing + this.yOffset(percentage));
     ctx.scale(-1, 1);
-    ctx.strokeText('R', -(60 + this.xOffset(percentage)), -verticalSpacing + this.yOffset(percentage)); //have to flip X as we did -1 scale above
+    ctx.strokeText('S', -(60 + this.xOffset(percentage)), -verticalSpacing + this.yOffset(percentage)); //have to flip X as we did -1 scale above
     ctx.scale(-1, 1);
 
     ctx.textBaseline = 'hanging';
     ctx.textAlign = 'center';
-    ctx.strokeText('T', -110 + this.xOffset(percentage), 10 + this.yOffset(percentage));
-    ctx.strokeText('H', 80 - this.xOffset(percentage), 10 + this.yOffset(percentage));
+    ctx.strokeText('W', -110 + this.xOffset(percentage), 10 + this.yOffset(percentage));
+    ctx.strokeText('E', 80 - this.xOffset(percentage), 10 + this.yOffset(percentage));
   }
 }
