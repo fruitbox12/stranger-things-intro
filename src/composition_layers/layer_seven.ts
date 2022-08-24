@@ -24,10 +24,10 @@ export class LayerSeven extends Layer {
 
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'right';
-    ctx.strokeText('N', -60 + this.ngSpacing(percentage), 0)
+    ctx.strokeText('A', -60 + this.ngSpacing(percentage), 0)
 
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'left';
-    ctx.strokeText('G', 110 - this.ngSpacing(percentage), 0)
+    ctx.strokeText('WS', 110 - this.ngSpacing(percentage), 0)
   }
 }
