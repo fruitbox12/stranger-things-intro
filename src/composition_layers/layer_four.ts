@@ -34,10 +34,10 @@ export class LayerFour extends Layer {
 
     ctx.textBaseline = 'hanging';
     ctx.textAlign = 'center';
-    ctx.strokeText('S', this.sCoordinates.x(percentage), this.sCoordinates.y(percentage))
+    ctx.strokeText('A', this.sCoordinates.x(percentage), this.sCoordinates.y(percentage))
 
     ctx.textBaseline = 'alphabetic';
     ctx.textAlign = 'center';
-    ctx.strokeText('G', this.gCoordinates.x(percentage), this.gCoordinates.y(percentage));
+    ctx.strokeText('s', this.gCoordinates.x(percentage), this.gCoordinates.y(percentage));
   }
 }
